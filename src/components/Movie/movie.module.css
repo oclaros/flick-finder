@@ -1,0 +1,8 @@
+.movieContainer {
+  margin: 0.75rem;
+}
+
+.movieContainer img {
+  height: 100%;
+  box-shadow: 0 0 35px #000;
+}

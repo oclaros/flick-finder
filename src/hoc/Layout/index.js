@@ -4,7 +4,7 @@ import Header from '../../components/Header';
 
 const Layout = (props) => {
   return (
-    <div>
+    <div className="layoutContainer">
       <MainNav />
       <Header />
       <div>
