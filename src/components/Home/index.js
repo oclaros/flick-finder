@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import moment from "moment";
-import { Button} from "reactstrap";
 import {
   API_NOW_PLAYING,
   LANG_STRING,
   API_BASE_SEARCH_MOVIE,
-  API_UPCOMING_MOVIES
+  API_UPCOMING_MOVIES,
+  MOVIE_CONTAINER_LAYOUT_TYPE,
+  MOVIE_LIST_TYPE,
 } from "../../config";
 import axios from "axios";
 import MovieList from "../MoveList";
@@ -15,8 +15,14 @@ class Home extends Component {
   state = {
     movieList: [],
     searchList: [],
+    upcomingList: [],
     movieSearchText: "star   wars"
   };
+
+  componentDidMount() {
+    this.getCurrentMoviesInTheaters();
+    this.getUpcomingMovies(null);
+  }
 
   handleMovieSearchTextChange = e => {
     e.preventDefault();
@@ -47,18 +53,16 @@ class Home extends Component {
   };
 
   getUpcomingMovies = e => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     const currentMoviesRequest = `${API_UPCOMING_MOVIES}api_key=${
       process.env.REACT_APP_API_KEY
     }&${LANG_STRING}page=1&region=US&include_adult=false`;
-    console.log("currentMoviesRequest", currentMoviesRequest);
     axios
       .get(currentMoviesRequest)
       .then(response => {
         this.setState({
-          searchList: response.data.results
+          upcomingList: response.data.results
         });
-        console.log("upcoming List", response.data.results);
       })
       .catch(error => {
         console.log(error);
@@ -96,31 +100,26 @@ class Home extends Component {
   };
   render() {
     return (
-      <div>
-        <p>the time was {moment().format("YYYY-MM-DD")}</p>
-        <Button color="danger" onClick={this.getCurrentMoviesInTheaters}>
-          Get latest movies
-        </Button>
-        <Button color="primary" onClick={this.handleFindMovie}>
-          find movie
-        </Button>
-        <Button color="info" onClick={this.getUpcomingMovies}>
-          upcoming movies
-        </Button>
-        <Button color="secondary" onClick={this.test}>
-          find movie (maybe?)
-        </Button>
-        <form
-          className="movieSearchContainer"
-          onSubmit={this.handleFindMovie}
-        />
-        {this.state.movieList && (
-          <MovieList
-            containerClass="now-playing-container"
-            movieList={this.state.movieList}
-            listTitle="Now Playing"
-          />
-        )}
+      <div className="movieCollectionContainer">
+        <div className="upcomingCollectionContainer">
+          {this.state.upcomingList && (
+            <MovieList
+              containerClass={MOVIE_CONTAINER_LAYOUT_TYPE.movieContainerDuo}
+              movieList={this.state.upcomingList}
+              listTitle="Upcoming Movies"
+              listType={MOVIE_LIST_TYPE.upcoming}
+            />
+          )}
+        </div>
+        <div>
+          {this.state.movieList && (
+            <MovieList
+              containerClass={MOVIE_CONTAINER_LAYOUT_TYPE.movieContainerDuo}
+              movieList={this.state.movieList}
+              listTitle="Now Playing"
+            />
+          )}
+        </div>
       </div>
     );
   }

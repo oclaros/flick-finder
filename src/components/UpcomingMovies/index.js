@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import {
   LANG_STRING,
   API_UPCOMING_MOVIES,
-  MOVIE_LIST_TYPE
+  MOVIE_LIST_TYPE,
+  MOVIE_CONTAINER_LAYOUT_TYPE
 } from "../../config";
 import axios from "axios";
 import MovieList from "../MoveList";
@@ -19,7 +20,6 @@ class UpcomingMovies extends Component {
     const currentMoviesRequest = `${API_UPCOMING_MOVIES}api_key=${
       process.env.REACT_APP_API_KEY
     }&${LANG_STRING}page=1&region=US&include_adult=false`;
-    console.log("currentMoviesRequest", currentMoviesRequest);
 
     axios
       .get(currentMoviesRequest)
@@ -27,7 +27,6 @@ class UpcomingMovies extends Component {
         this.setState({
           movieList: response.data.results
         });
-        console.log("upcoming List", response.data.results);
       })
       .catch(error => {
         console.log(error);
@@ -38,7 +37,7 @@ class UpcomingMovies extends Component {
       <div>
         {this.state.movieList && (
           <MovieList
-            containerClass="now-playing-container"
+            containerClass={MOVIE_CONTAINER_LAYOUT_TYPE.movieContainerSolo}
             movieList={this.state.movieList}
             listTitle="Upcoming Movies"
             listType={MOVIE_LIST_TYPE.upcoming}

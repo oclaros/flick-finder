@@ -11,7 +11,7 @@ class MovieList extends Component {
     })
     return (
       <div>
-      <h1>{this.props.listTitle}</h1>
+      <h2 className='movieListTitle'>{this.props.listTitle}</h2>
       <div className={this.props.containerClass} >
         {list.map(movie => {
           return (

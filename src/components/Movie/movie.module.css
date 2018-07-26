@@ -7,7 +7,7 @@ a div:hover{
 
 .movieContainer, .upcomingMovieContainer {
   margin: 0.75rem;
-  width: 220px;
+
   background: #171717;
   box-shadow: 0 0 35px #000;
 }
@@ -25,5 +25,10 @@ a div:hover{
   margin: 10px 0 10px 0;
   padding: 10px 0 10px 0;
   line-height: 0.2rem;
+}
+
+
+@media screen and (max-width: 680px){
+
 }
 

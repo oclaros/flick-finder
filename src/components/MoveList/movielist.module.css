@@ -1,6 +1,57 @@
-.now-playing-container{
+.movieContainerSolo,
+.movieContainerDuo {
   padding: 5px;
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+}
 
+.movieContainerSolo {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+@media only screen and (max-width: 680px) {
+  .movieContainerSolo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .movieContainerDuo {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .movieListTitle {
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (min-width: 680px) {
+  .movieContainerSolo {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .movieContainerDuo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .movieListTitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .movieContainerSolo {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .movieContainerDuo {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .movieListTitle {
+    font-size: 1.8em;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .movieContainerSolo {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .movieContainerDuo {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .movieListTitle {
+    font-size: 2rem;
+  }
 }

@@ -1,6 +1,7 @@
 import keyMirror from 'keymirror'
 export const MOVIE_LIST_TYPE = keyMirror({ default: null, upcoming: null});
 export const MOVIE_CONTAINER_TYPE = keyMirror({ movieContainer: null, upcomingMovieContainer: null});
+export const MOVIE_CONTAINER_LAYOUT_TYPE = keyMirror({movieContainerSolo: null, movieContainerDuo :null})
 export const API_BASE_STRING = 'https://api.themoviedb.org/3/';
 export const API_DISCOVER = 'discover/movie';
 export const API_NOW_PLAYING = API_BASE_STRING +'movie/now_playing?';
