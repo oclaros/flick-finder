@@ -1,8 +1,29 @@
-.movieContainer {
-  margin: 0.75rem;
+a {
+  text-decoration: none !important;
+}
+a div:hover{
+  font-weight: bold;
 }
 
-.movieContainer img {
-  height: 100%;
+.movieContainer, .upcomingMovieContainer {
+  margin: 0.75rem;
+  width: 220px;
+  background: #171717;
   box-shadow: 0 0 35px #000;
 }
+.upcomingMovieContainer {
+  height: 380px;
+  color: #fff;
+}
+
+.movieContainer img , .upcomingMovieContainer img{
+  width: 100%;
+  height: 330px;   
+}
+
+.movieReleaseDate{
+  margin: 10px 0 10px 0;
+  padding: 10px 0 10px 0;
+  line-height: 0.2rem;
+}
+

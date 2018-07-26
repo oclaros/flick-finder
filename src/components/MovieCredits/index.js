@@ -42,7 +42,7 @@ class MovieCredits extends Component {
   renderCrewMembers(members) {
     return members.map(member => {
       return (
-        <Card key={member.name}>
+        <Card key={`${member.name}${member.job}`}>
           {this.renderImg(member.profile_path, member.name)}
           <CardBody>
             <CardTitle>{member.name}</CardTitle>

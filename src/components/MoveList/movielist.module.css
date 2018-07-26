@@ -1,6 +1,6 @@
 .now-playing-container{
-  padding: 15px;
+  padding: 5px;
   display: grid;
-  grid-template-columns: repeat(5,1fr);
-  justify-content: center;
+  grid-template-columns: repeat(4,1fr);
+
 }

@@ -4,6 +4,7 @@ const MainNav = () => {
   return (
     <nav>
       <NavLink to='/'>Home</NavLink>
+      <NavLink to="/UpcomingMovies">Upcoming Movies</NavLink>
     </nav>
   );
 };
