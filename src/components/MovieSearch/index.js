@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { Button, InputGroup, InputGroupAddon, Input } from "reactstrap";
-import { LANG_STRING, API_BASE_SEARCH_MOVIE } from "../../config";
+import {
+  LANG_STRING,
+  API_BASE_SEARCH_MOVIE,
+  MOVIE_CONTAINER_LAYOUT_TYPE
+} from "../../config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/fontawesome-free-solid";
 import axios from "axios";
@@ -20,7 +24,10 @@ class MovieSearch extends Component {
     if (e) e.preventDefault();
     if (!searchText) return;
     const text = encodeURI(searchText.replace(/\s+/g, " ").trim());
-    this.setState({ movieList: [], movieSearchText : searchText.replace(/\s+/g, " ").trim() });
+    this.setState({
+      movieList: [],
+      movieSearchText: searchText.replace(/\s+/g, " ").trim()
+    });
     const findMovieRequest = `${API_BASE_SEARCH_MOVIE}?query=${text}&api_key=${
       process.env.REACT_APP_API_KEY
     }&${LANG_STRING}&page=1&include_adult=false`;
@@ -63,7 +70,7 @@ class MovieSearch extends Component {
         </div>
         {this.state.movieList && (
           <MovieList
-            containerClass="now-playing-container"
+            containerClass={MOVIE_CONTAINER_LAYOUT_TYPE.movieContainerSolo}
             movieList={this.state.movieList}
             listTitle={`Results`}
           />

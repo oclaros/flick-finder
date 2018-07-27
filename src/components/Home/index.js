@@ -5,8 +5,11 @@ import {
   API_BASE_SEARCH_MOVIE,
   API_UPCOMING_MOVIES,
   MOVIE_CONTAINER_LAYOUT_TYPE,
-  MOVIE_LIST_TYPE,
+  MOVIE_LIST_TYPE
 } from "../../config";
+import { Button, InputGroup, InputGroupAddon, Input } from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/fontawesome-free-solid";
 import axios from "axios";
 import MovieList from "../MoveList";
 import "./home.module.css";
@@ -16,11 +19,11 @@ class Home extends Component {
     movieList: [],
     searchList: [],
     upcomingList: [],
-    movieSearchText: "star   wars"
+    movieSearchText: "",
   };
 
   componentDidMount() {
-    this.getCurrentMoviesInTheaters();
+    this.getCurrentMovies();
     this.getUpcomingMovies(null);
   }
 
@@ -70,10 +73,10 @@ class Home extends Component {
   };
 
   handleGetMovies = () => {
-    this.getCurrentMoviesInTheaters();
+    this.getCurrentMovies();
   };
 
-  getCurrentMoviesInTheaters = () => {
+  getCurrentMovies = () => {
     const currentMoviesRequest = `${API_NOW_PLAYING}api_key=${
       process.env.REACT_APP_API_KEY
     }&${LANG_STRING}`;
@@ -100,25 +103,49 @@ class Home extends Component {
   };
   render() {
     return (
-      <div className="movieCollectionContainer">
-        <div className="upcomingCollectionContainer">
-          {this.state.upcomingList && (
-            <MovieList
-              containerClass={MOVIE_CONTAINER_LAYOUT_TYPE.movieContainerDuo}
-              movieList={this.state.upcomingList}
-              listTitle="Upcoming Movies"
-              listType={MOVIE_LIST_TYPE.upcoming}
-            />
-          )}
-        </div>
+      <div>
         <div>
-          {this.state.movieList && (
-            <MovieList
-              containerClass={MOVIE_CONTAINER_LAYOUT_TYPE.movieContainerDuo}
-              movieList={this.state.movieList}
-              listTitle="Now Playing"
+        <div className="movieSearchContainer">
+          <InputGroup>
+            <InputGroupAddon addonType="prepend">
+              <FontAwesomeIcon icon={faSearch} />
+            </InputGroupAddon>
+            <Input
+              placeholder="Enter the name of the movie"
+              onChange={this.handleMovieSearchTextChange}
+              value={this.state.movieSearchText}
             />
-          )}
+          </InputGroup>
+          <Button
+            outline
+            color="primary"
+            onClick={e => this.test( e)}
+          >
+            search
+          </Button>
+        </div>
+
+        </div>
+        <div className="movieCollectionContainer">
+          <div className="upcomingCollectionContainer">
+            {this.state.upcomingList && (
+              <MovieList
+                containerClass={MOVIE_CONTAINER_LAYOUT_TYPE.movieContainerDuo}
+                movieList={this.state.upcomingList}
+                listTitle="Upcoming Movies"
+                listType={MOVIE_LIST_TYPE.upcoming}
+              />
+            )}
+          </div>
+          <div className="nowPlayingCollectionContainer">
+            {this.state.movieList && (
+              <MovieList
+                containerClass={MOVIE_CONTAINER_LAYOUT_TYPE.movieContainerDuo}
+                movieList={this.state.movieList}
+                listTitle="Now Playing"
+              />
+            )}
+          </div>
         </div>
       </div>
     );
