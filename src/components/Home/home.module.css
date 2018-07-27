@@ -5,8 +5,9 @@
 }
 
 .upcomingCollectionContainer, .nowPlayingCollectionContainer{
-  border-top: 5px solid rgba(40, 40, 40, 45);
-  border-left: 5px solid rgba(40, 40, 40, 45);
-  border-right: 5px solid rgba(40, 40, 40, 45);
+  
+  border-top: 2px solid #007bff;
+  border-left: 2px solid #007bff;
+  border-right: 2px solid #007bff;
   border-radius: 30px;
 }

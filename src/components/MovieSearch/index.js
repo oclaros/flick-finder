@@ -17,7 +17,7 @@ class MovieSearch extends Component {
     movieList: []
   };
   componentDidMount() {
-    this.handleMovieSearch(this.props.location.state.searchText, null);
+    if (this.props.location.state) this.handleMovieSearch(this.props.location.state.searchText, null);
   }
 
   handleMovieSearch = (searchText, e) => {
