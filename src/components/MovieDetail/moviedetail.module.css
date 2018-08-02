@@ -37,3 +37,35 @@
 .movieSummary p {
   text-align: left;
 }
+
+@media screen and (max-width: 600px) {
+  .movieDetailHeaderRow {
+    grid-area: b;
+    width: 100%;
+    align-self: center;
+    margin-left: 0;
+  }
+  .movieSummary h2 {
+    font-size: 1rem;
+  }
+  .movieSummary p {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 680px) {
+  .movieDetailHeaderRow {
+    grid-area: b;
+    align-self: center;
+  }
+  
+}
+
+@media only screen and (min-width: 768px) {
+  .movieDetailHeaderRow {
+    grid-area: b;
+    align-self: center;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+}

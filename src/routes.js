@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import MovieDetails from "./components/MovieDetail";
 import UpcomingMovies from './components/UpcomingMovies';
+import NowPlaying from './components/NowPlaying';
 import MovieSearch from './components/MovieSearch';
 import Layout from "./hoc/Layout";
 
@@ -13,6 +14,7 @@ const Routes = () => {
         <Switch>
           <Route path='/UpcomingMovies' component={UpcomingMovies} />
           <Route path='/MovieSearch' component={MovieSearch} />
+          <Route path='/NowPlaying' component={NowPlaying} />
           <Route path="/" exact component={Home} />
           <Route path="/:id" exact component={MovieDetails} />
         </Switch>

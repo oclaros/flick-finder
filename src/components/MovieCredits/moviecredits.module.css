@@ -9,7 +9,7 @@
 .castCardContainer{  
   display: grid;
   padding: 1rem;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 3rem;
   grid-row-gap: 2rem;
   margin-right: 20%;
@@ -17,7 +17,7 @@
 .crewCardContainer{
   display: grid;
   padding: 1rem;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 3rem;
   grid-row-gap: 2rem;
   margin-left: 20%;
@@ -33,4 +33,57 @@
 }
 .card-text{
   font-size:0.9rem;
+}
+
+@media screen and (max-width: 600px) {
+  .castAndCrewContainer {
+    margin-top: auto;
+    padding: 0px;
+    grid-gap: 0px;
+    margin-right: 0;
+  }
+  
+  .castAndCrewContainer h3{
+  font-size: 1.2rem;
+  }
+  
+  
+  .castAndCrewContainer h4{
+  font-size: 1.0rem;
+  }
+  
+  .crewCardContainer, .castCardContainer{
+  grid-column-gap: 0.2rem;
+  grid-row-gap: 0.1rem;
+  padding: 0;
+  grid-template-columns: repeat(2, 1fr);
+  }
+  .castCardContainer{
+    margin-right: 0px;
+  }
+  .crewCardContainer{
+    margin-left: 0px;
+  }  
+  
+  .card-body{
+  padding: 0.2rem;
+  margin: 0.1rem;
+  }
+  .card-title{
+    font-size: 0.8rem;
+  }  
+  
+  .card-text{
+    font-size: 0.7rem;
+  }
+}
+@media only screen and (min-width: 680px) {
+  
+}
+
+@media only screen and (min-width: 768px) {
+  
+}
+
+@media only screen and (min-width: 992px) {
 }
