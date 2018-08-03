@@ -27,6 +27,7 @@
   color: #fff;
   box-shadow: 5px 5px 22px 5px #0f0f0f;
   background-color: #605e5e !important;
+  padding: 0.2rem;
 }
 
 .card-title{
@@ -34,6 +35,9 @@
 }
 .card-text{
   font-size:0.9rem;
+}
+.card-body{
+  padding: 0;
 }
 
 @media screen and (max-width: 600px) {
@@ -83,7 +87,28 @@
 }
 
 @media only screen and (min-width: 768px) {
-  
+
+  .crewCardContainer, .castCardContainer{
+    grid-column-gap: 0.2rem;
+    grid-row-gap: 0.1rem;
+    padding: 0;
+    }
+
+  .card-body{
+    padding: 0!important;
+    font-size: 1rem!important;
+  }
+  .card-title{
+    font-weight: bold;
+    margin-top:0.3rem;
+  }
+
+  .castCardContainer{
+    margin-right: 0px;
+  }
+  .crewCardContainer{
+    margin-left: 0px;
+  }  
 }
 
 @media only screen and (min-width: 992px) {

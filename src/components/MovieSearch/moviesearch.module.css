@@ -14,3 +14,17 @@
 .movieSearchContainer .btn{
   margin-left: 5px;
 }
+
+@media screen and (max-width: 600px) {
+  .movieSearchContainer{
+    width: 95%;
+    margin-left: 0%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .movieSearchContainer{
+    width: 65%;
+    margin-left: 18%;
+  }
+}
